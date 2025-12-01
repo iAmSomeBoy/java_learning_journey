@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 public class SimpleGui3 implements ActionListener{
     private JFrame frame;
-
     public static void main(String[] args) {
         SimpleGui3 gui= new SimpleGui3();
         gui.go();
