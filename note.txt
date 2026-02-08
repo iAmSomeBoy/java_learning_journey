@@ -1,3 +1,8 @@
 we can use var for the data-type
 int x= 5; same as var x= 5;
 String s= "Hello World"; var= "Hello World";
+
+# In the java program, multiple class not necessarily need to be in any sequence.
+    # just write them in program any where. becuse
+    # compiler compile all the classes individually making distinct .class for each class written in the .java program.
+    
