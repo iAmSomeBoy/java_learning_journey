@@ -201,12 +201,71 @@ Object বানিয়ে method ব্যবহার করা = **Composition
 | GameLauncher → Game | uses-a | Object use |
 | Hippo → Animal | is-a | Inheritance |
 
----
-
 ## 🎯 Final Takeaway
-
 > **Method ব্যবহার করতে inheritance দরকার নেই**  
 > **Object থাকলেই যথেষ্ট**
-
 Inheritance শুধু তখনই ব্যবহার করো,  
 যখন relationship সত্যিই **is-a**।
+
+
+# Inheritance vs Composition — Basic Differences
+## 1️⃣ Method override করা যায়?
+🔹 Inheritance (is-a) → YES
+```
+class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+```
+
+✔️ Subclass superclass-এর method override করতে পারে।
+🔹 Composition (has-a) → NO (directly না)
+``` class Engine {
+    void start() {
+        System.out.println("Engine started");
+    }
+}
+
+class Car {
+    Engine engine = new Engine();
+}
+```
+
+ ❌ Car → Engine-এর method override করতে পারে না
+ ✔️ শুধু engine.start() call করতে পারে
+ 👉 Override শুধু parent-child relationship-এ হয়।
+
+## 2️⃣ Relationship type
+Topic	Inheritance	Composition
+Relationship	is-a	has-a / uses-a
+Keyword	extends	object create
+Method override	✅ Yes	❌ No
+## 3️⃣ Polymorphism support
+🔹 Inheritance → Full polymorphism
+Animal a = new Dog();
+a.sound(); // Bark
+
+🔹 Composition → No runtime polymorphism
+Car c = new Car();
+c.engine.start();
+
+## 4️⃣ Access level
+Feature	Inheritance	Composition
+protected access	✅ Yes	❌ No
+private access	❌ No	❌ No
+## 5️⃣ Code change impact
+ Inheritance
+Parent class change → child break হতে পারে
+Fragile base class problem
+
+ Composition:
+Component change → low impact
+Easy to replace component

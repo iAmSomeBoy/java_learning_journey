@@ -1,4 +1,3 @@
-
 /*override method must follow the followings
  # same arguments as in the super class' method
  # return type must be same as well
